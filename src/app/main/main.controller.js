@@ -9,31 +9,19 @@
   function MainController($timeout, webDevTec, toastr) {
     var vm = this;
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1467338684075;
-    vm.showToastr = showToastr;
+    vm.value = 100;
+    vm.operations = [{
+      operation: "in",
+      value: 100
+    }, {
+      operation: "out",
+      value: 50
+    }, {
+      operation: "in",
+      value: 200
+    }];
 
-    activate();
-
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
+    vm.balance = vm.value;
+    
   }
 })();

@@ -48,52 +48,95 @@ main {
   padding: 20px;
   background: #fafafa;
 }
-.acme-card-wide {
-  &.mdl-card {
+
+.principal-card {
+  
+  width: 100%;
+  
+  .mdl-card__title {
+    flex-flow: column;
+  }
+
+  h2,
+  .balance,
+  #wallet-action-form {
+    display: 1 1 auto;
     width: 100%;
   }
 
-  > .mdl-card__title {
-    color: #fff;
-    height: 176px;
-    background: url('../assets/images/yeoman.png') center / cover;
-    background-size: 110px;
-    background-repeat: no-repeat;
-  }
-
-  > .mdl-card__title > .mdl-card__title-text {
-    color: #000;
-  }
-
-  > .mdl-card__menu {
-    color: #000;
-  }
-
-  > .mdl-card__actions {
-    text-align: center;
-  }
 }
 
-.acme-card-square {
-  &.mdl-card {
+.operation-card {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  .mdl-card__title {
+    flex-flow: column;
+  }
+  .operations-table, h2 {
+    flex: 1 1 auto;
     width: 100%;
-    min-height: 200px;
   }
 
-  > .mdl-card__title {
-    color: #fff;
-    background: #283593;
-  }
-
-  > .mdl-card__media {
-    color: #fff;
-    background: none;
-    text-align: center;
-    img {
-      height: 100px;
+  .row {
+    .operation-type,
+    .value {
+      float:left;
+    }
+    .operation-type {
+      width: 25%;
+    }
+    .value {
+      width: 75%;
     }
   }
 }
+// .acme-card-wide {
+//   &.mdl-card {
+//     width: 100%;
+//   }
+
+//   > .mdl-card__title {
+//     color: #fff;
+//     height: 176px;
+//     background: url('../assets/images/yeoman.png') center / cover;
+//     background-size: 110px;
+//     background-repeat: no-repeat;
+//   }
+
+//   > .mdl-card__title > .mdl-card__title-text {
+//     color: #000;
+//   }
+
+//   > .mdl-card__menu {
+//     color: #000;
+//   }
+
+//   > .mdl-card__actions {
+//     text-align: center;
+//   }
+// }
+
+// .acme-card-square {
+//   &.mdl-card {
+//     width: 100%;
+//     min-height: 200px;
+//   }
+
+//   > .mdl-card__title {
+//     color: #fff;
+//     background: #283593;
+//   }
+
+//   > .mdl-card__media {
+//     color: #fff;
+//     background: none;
+//     text-align: center;
+//     img {
+//       height: 100px;
+//     }
+//   }
+// }
 
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
