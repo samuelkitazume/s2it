@@ -3,13 +3,13 @@
 
   angular
     .module('s2it')
-    .factory('walletService', ["localstorageService", walletService]);
+    .factory('walletService', ["localstorageService", "$rootScope", walletService]);
 
-  function walletService(lsService) {
+  function walletService(lsService, $rootScope) {
     var wallet = {},
         op = lsService.getItem("operations");
 
-    wallet.total = lsService.getItem("total") || 0;
+    wallet.total = +lsService.getItem("total") || 0;
     wallet.operations = op ? JSON.parse(op) : [];
 
     return {
@@ -23,11 +23,21 @@
                 return wallet.operations.filter(function(row) { return row.type == "out" })
             } else return wallet.operations
         },
-        setOperation: function setOperation() {
-
+        operate: function operate(val) {
+            var positive = val>=0;
+            wallet.total += val;
+            wallet.operations.push({
+                type: positive ? "in" : "out",
+                value: val
+            });
+            $rootScope.$broadcast("wallet.changed");
+        },
+        persist: function persist() {
+            lsService.setItem("total", wallet.total);
+            lsService.setItem("operations", JSON.stringify(wallet.operations));
         }
     };
     
-  }; 
+  }
 
 })();
