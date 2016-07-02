@@ -1,50 +1,33 @@
 (function() {
   'use strict';
 
-  /**
-   * @todo Complete the test
-   * This example is not perfect.
-   * Test should check if MomentJS have been called
-   */
-  describe('directive navbar', function() {
-    // var $window;
-    var vm;
-    var el;
-    var timeInMs;
+  describe('localstorage service', function() {
+
+    var lsService;
 
     beforeEach(module('s2it'));
-    beforeEach(inject(function($compile, $rootScope) {
-      // spyOn(_$window_, 'moment').and.callThrough();
-      // $window = _$window_;
 
-      timeInMs = new Date();
-      timeInMs = timeInMs.setHours(timeInMs.getHours() - 24);
+    beforeEach(function() {
+      localStorage.setItem("teste", "teste");      
+    });
 
-      el = angular.element('<acme-navbar creation-date="' + timeInMs + '"></acme-navbar>');
-
-      $compile(el)($rootScope.$new());
-      $rootScope.$digest();
-      vm = el.isolateScope().vm;
-      // ctrl = el.controller('acmeNavbar');
+    beforeEach(inject(function(localstorageService) {      
+      lsService = localstorageService;
     }));
 
-    it('should be compiled', function() {
-      expect(el.html()).not.toEqual(null);
+    afterEach(function() {
+      localStorage.removeItem("teste");
     });
 
-    it('should have isolate scope object with instanciate members', function() {
-      expect(vm).toEqual(jasmine.any(Object));
-
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
-      expect(vm.creationDate).toEqual(timeInMs);
-
-      expect(vm.relativeDate).toEqual(jasmine.any(String));
-      expect(vm.relativeDate).toEqual('a day ago');
+    it('precisa persistir na teste2.valor=1 na localStorage', function() {            
+      expect(lsService.setItem("teste2", "teste2")).toEqual(true);
     });
 
-    // it('should call Moment', function() {
-    //   console.log($window.moment)
-    //   expect($window.moment).toHaveBeenCalled();
-    // });
+    it('precisa retornar teste2 = teste2 && teste = teste', function() {       
+      expect(lsService.getItem("teste")).toEqual("teste");
+      expect(lsService.getItem("teste2")).toEqual("teste2");      
+    });
+
   });
+
 })();

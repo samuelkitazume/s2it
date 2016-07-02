@@ -49,14 +49,21 @@ main {
   background: #fafafa;
 }
 
-.principal-card {
+.s2it-card {
   
   width: 100%;
-  
+  display: flex;
+  margin-top: 10px;
+  min-height: auto;
+
   .mdl-card__title {
     flex-flow: column;
   }
 
+}
+
+.principal-card {  
+  
   h2,
   .balance,
   #wallet-action-form {
@@ -66,13 +73,8 @@ main {
 
 }
 
-.operation-card {
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  .mdl-card__title {
-    flex-flow: column;
-  }
+.operation-card {      
+
   .operations-table, h2 {
     flex: 1 1 auto;
     width: 100%;

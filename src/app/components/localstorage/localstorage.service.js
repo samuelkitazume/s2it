@@ -5,8 +5,26 @@
     .module('s2it')
     .factory('localstorageService', localstorageService);
 
-  function localstorageService() {    
-    return true;
-  };  
+  function localstorageService() {
+    
+    return {
+
+      setItem: function setItem(key, val) {      
+        try {
+          localStorage.setItem(key, val);
+          return true;
+        } catch(err) {
+          return false
+        }
+      },
+
+      getItem: function getItem(key) {
+        return localStorage[key];
+      }
+
+    }    
+    
+
+  }
 
 })();
