@@ -10,6 +10,11 @@
     var vm = this;
 
     vm.operationFieldValue = 0;
+    vm.operationType="in";
+
+    vm.reset = function reset() {
+        lsService.reset();                
+    };
 
     var update = function update() {
       vm.balance = walletService.getTotal();
@@ -19,8 +24,8 @@
     update();
 
     vm.save = function save() {
-      if (vm.operationFieldValue != undefined) {
-        walletService.operate(+vm.operationFieldValue);
+      if (vm.operationFieldValue != undefined) {        
+        walletService.operate(+(+vm.operationFieldValue).toFixed(2), vm.operationType);
       }
     };
 
@@ -28,7 +33,15 @@
       walletService.persist();
     };
 
-    var walletChangedEvent = $rootScope.$on("wallet.changed", update);
+    var onWalletChangedEvent = $rootScope.$on("wallet.changed", update);
+
+    var onResetEvent = $rootScope.$on("reset", update);
+
+    //Expondo o método reset para ser utilizado no console
+    (function(){
+      window.resetS2ITApp = vm.reset;
+    })()
+
     
-  }
+  } 
 })();

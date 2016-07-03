@@ -17,8 +17,7 @@
        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
-}
-
+} 
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -44,101 +43,7 @@
   font-feature-settings: 'liga';
 }
 
-main {
-  padding: 20px;
-  background: #fafafa;
-}
 
-.s2it-card {
-  
-  width: 100%;
-  display: flex;
-  margin-top: 10px;
-  min-height: auto;
-
-  .mdl-card__title {
-    flex-flow: column;
-  }
-
-}
-
-.principal-card {  
-  
-  h2,
-  .balance,
-  #wallet-action-form {
-    display: 1 1 auto;
-    width: 100%;
-  }
-
-}
-
-.operation-card {      
-
-  .operations-table, h2 {
-    flex: 1 1 auto;
-    width: 100%;
-  }
-
-  .row {
-    .operation-type,
-    .value {
-      float:left;
-    }
-    .operation-type {
-      width: 25%;
-    }
-    .value {
-      width: 75%;
-    }
-  }
-}
-// .acme-card-wide {
-//   &.mdl-card {
-//     width: 100%;
-//   }
-
-//   > .mdl-card__title {
-//     color: #fff;
-//     height: 176px;
-//     background: url('../assets/images/yeoman.png') center / cover;
-//     background-size: 110px;
-//     background-repeat: no-repeat;
-//   }
-
-//   > .mdl-card__title > .mdl-card__title-text {
-//     color: #000;
-//   }
-
-//   > .mdl-card__menu {
-//     color: #000;
-//   }
-
-//   > .mdl-card__actions {
-//     text-align: center;
-//   }
-// }
-
-// .acme-card-square {
-//   &.mdl-card {
-//     width: 100%;
-//     min-height: 200px;
-//   }
-
-//   > .mdl-card__title {
-//     color: #fff;
-//     background: #283593;
-//   }
-
-//   > .mdl-card__media {
-//     color: #fff;
-//     background: none;
-//     text-align: center;
-//     img {
-//       height: 100px;
-//     }
-//   }
-// }
 
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject

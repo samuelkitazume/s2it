@@ -1,0 +1,89 @@
+$s2it-color: #10739e;
+
+main {
+  padding: 20px;
+  background: #fafafa;
+}
+
+.s2it-card {
+  
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  min-height: auto;
+
+  .mdl-card__title {
+    flex-flow: column;
+  }
+
+  .title-title {
+    width: 100%;
+    display: 1 1 auto;
+    margin-bottom: 20px;
+    span {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.5);
+    }  
+  }
+
+  .mdl-data-table {
+  	width: 100%;
+  }
+
+}
+
+.mdl-layout__header {
+  background: $s2it-color;
+}
+
+.mdl-button--raised.mdl-button--colored {
+  background: $s2it-color;
+}
+
+.principal-card {   
+  
+  .balance {
+    display: 1 1 auto;
+    width: 100%;
+  }
+
+  .balance {
+    .total-value:before {
+      content: "R$ "
+    }
+  }  
+
+}
+
+.operation-card {      
+
+  .operations-table, h2 {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .operations-table {
+  	table {
+  		.row {
+  			font-size: 24px;
+  			font-weight: 100;
+  			color: rgba(0, 0, 0, 0.7);
+  		}
+  		.row-type {
+  			width: 25;  			
+  		}
+  		.row-value {
+  			width: 75%;
+  			text-align: left;  			
+  		}
+  	}
+  }
+
+}
+
+.operate-input:before {
+  content: "R$ ";
+  float: left;
+  margin-left: -30px;
+  margin-top: 5px;
+}
