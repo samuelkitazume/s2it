@@ -12,6 +12,10 @@
     wallet.total = +lsService.getItem("wallet-total") || 0;
     wallet.operations = op ? JSON.parse(op) : [];
 
+    var walletChanged = function walletChanged() {
+        $rootScope.$broadcast("wallet.changed");
+    }
+
     return {
         getTotal: function getTotal() {
             return +wallet.total.toFixed(2);
@@ -29,11 +33,22 @@
                 type: type,
                 value: val
             });
-            $rootScope.$broadcast("wallet.changed");
+            walletChanged()
         },
         persist: function persist() {            
             lsService.setItem("wallet-total", wallet.total);
             lsService.setItem("wallet-operations", JSON.stringify(wallet.operations));
+        },
+        reverseOperation: function reverseOperation(index) {
+            var operation = wallet.operations.splice(index, 1);            
+            console.log(wallet.total, operation, operation.value, operation.type);
+            operation = operation[0];
+            if (operation.type == "in") {
+                wallet.total -= operation.value;
+            } else {
+                wallet.total += operation.value;
+            }
+            walletChanged();
         }
     };
     

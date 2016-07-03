@@ -70,7 +70,7 @@ main {
   			color: rgba(0, 0, 0, 0.7);
   		}
   		.row-type {
-  			width: 25;  			
+  			width: 25%;  			
   		}
   		.row-value {
   			width: 75%;
@@ -81,9 +81,42 @@ main {
 
 }
 
-.operate-input:before {
-  content: "R$ ";
-  float: left;
-  margin-left: -30px;
-  margin-top: 5px;
+.form-card {
+	h6 {
+		color: rgba(0, 0, 0, 0.4);
+	}
+	.operation-type {
+		h6 {
+			margin-top: 0;
+		}
+	}
+	.form-container {
+		margin:25px 0 0;
+		float: left;
+		width: 100%;
+	}
+}
+
+.wallet-action-form {
+	width: 100%;
+	float: left;
+	.operate-input {
+
+		margin: 0;
+		padding: 0;
+		
+		&:before {
+		  content: "R$ ";
+		  float: left;  
+		  margin-top: 5px;
+		}
+
+		input {
+			width: calc(100% - 30px);
+			margin-left: 30px;
+		
+		
+		}
+
+	}
 }

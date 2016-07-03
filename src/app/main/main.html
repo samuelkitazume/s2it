@@ -14,15 +14,14 @@
             <span>Account balance</span>
           </div>
 
-          <div class="balance">
-            <span class="mdl-typography--display-1">Total:</span>
+          <div class="balance">            
             <span class="total-value mdl-typography--display-2">{{main.balance}}</span>
           </div>         
 
         </div>
       </div>
 
-      <div class="s2it-card mdl-card mdl-shadow--2dp">
+      <div class="s2it-card form-card mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title">         
 
             <div class="title-title">
@@ -30,20 +29,27 @@
             </div>
 
           <form class="wallet-action-form">
-            <div class="operation-type">
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                <input type="radio" id="option-1" class="mdl-radio__button" name="options" ng-model="main.operationType"value="in" checked>
-                <span class="mdl-radio__label">Deposit</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                <input type="radio" id="option-2" class="mdl-radio__button" name="options" ng-model="main.operationType"value=out>
-                <span class="mdl-radio__label">Withdraw</span>
-              </label>
-            </div>
-            <div class="operate-input mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" pattern="[0-9]+(\.[0-9]{2})?" id="sample2" ng-model="main.operationFieldValue">
-              <label class="mdl-textfield__label" for="sample2">Number...</label>
-              <span class="mdl-textfield__error">Input is not a number!</span>
+            <div class="form-container">
+              <div class="operation-type">
+                <h6>Select the type of the operation:</h6>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                  <input type="radio" id="option-1" class="mdl-radio__button" name="options" ng-model="main.operationType"value="in" checked>
+                  <span class="mdl-radio__label">Deposit</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                  <input type="radio" id="option-2" class="mdl-radio__button" name="options" ng-model="main.operationType"value=out>
+                  <span class="mdl-radio__label">Withdraw</span>
+                </label>
+              </div>
+            </div>            
+            <div class="form-container">
+              <h6>Input the value</h6>
+              <div class="operate-input mdl-textfield mdl-js-textfield">
+
+                <input class="mdl-textfield__input" type="text" pattern="[0-9]+(\.[0-9]{2})?" id="sample2" ng-model="main.operationFieldValue">
+                <label class="mdl-textfield__label" for="sample2">Number...</label>
+                <span class="mdl-textfield__error">Input is not a number!</span>
+              </div>
             </div>
           </form>
 
@@ -86,12 +92,18 @@
                 <tr>
                   <th class="row-type mdl-data-table__cell--non-numeric">Tipo da transação</th>
                   <th class="row-value">Valor</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="row" ng-repeat="row in main.operations track by $index">
-                  <td class="row-type mdl-data-table__cell--non-numeric">{{row.type=="in" ? "Deposit" : "Withdrawal"}}</td>
-                  <td class="row-value">{{row.value}}</td>                  
+                  <td class="row-type mdl-data-table__cell--non-numeric">
+                  <img src="{{main.imagesLinks[row.type]}}"/>
+                  {{row.type=="in" ? "Deposit" : "Withdrawal"}}</td>
+                  <td class="row-value">R$ {{row.value}}</td>
+                  <td class="action">
+                    <span ng-click="main.reverseOperation($index)">Remove</span>
+                  </td>
                 </tr>                
               </tbody>
             </table>
