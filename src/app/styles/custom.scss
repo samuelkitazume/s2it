@@ -76,7 +76,10 @@ main {
   			width: 75%;
   			text-align: left;  			
   		}
-  	}
+  		.action {
+  			cursor: pointer;
+  		}
+  	}  	
   }
 
 }
