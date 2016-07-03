@@ -13,8 +13,8 @@
     vm.operationType="in";
 
     vm.imagesLinks = {
-      "out": '/assets/images/ic_arrow_forward_black_24px.svg',
-      "in": '/assets/images/ic_arrow_back_black_24px.svg'
+      "out": 'assets/images/ic_arrow_forward_black_24px.svg',
+      "in": 'assets/images/ic_arrow_back_black_24px.svg'
     };
 
     vm.reset = function reset() {
@@ -45,7 +45,7 @@
     var onWalletChangedEvent = $rootScope.$on("wallet.changed", update);
 
     var onResetEvent = $rootScope.$on("reset", update);
-    
+
     //Expondo o método reset para ser utilizado no console
     (function(){
       window.resetS2ITApp = vm.reset;
