@@ -36,8 +36,14 @@ main {
   background: $s2it-color;
 }
 
-.mdl-button--raised.mdl-button--colored {
-  background: $s2it-color;
+.mdl-button {
+	&.mdl-button--colored {
+		color: $s2it-color;
+		&.mdl-button--raised {
+			color: white;
+			background: $s2it-color;
+		}
+	}	
 }
 
 .principal-card {   
@@ -51,7 +57,7 @@ main {
     .total-value:before {
       content: "R$ "
     }
-  }  
+  }
 
 }
 
@@ -64,8 +70,11 @@ main {
 
   .operations-table {
   	table {
-  		.row {
-  			font-size: 24px;
+  		td {
+  			vertical-align: middle;
+  			padding: 10px;
+  		}
+  		.row {  			
   			font-weight: 100;
   			color: rgba(0, 0, 0, 0.7);
   		}
@@ -75,9 +84,6 @@ main {
   		.row-value {
   			width: 75%;
   			text-align: left;  			
-  		}
-  		.action {
-  			cursor: pointer;
   		}
   	}  	
   }
@@ -97,6 +103,11 @@ main {
 		margin:25px 0 0;
 		float: left;
 		width: 100%;
+	}
+	.persist-help {
+		color: rgba(0, 0, 0, 0.5);
+		font-size: 14px;
+		font-style: italic;
 	}
 }
 
@@ -126,3 +137,28 @@ main {
 		margin-right: 50px;
 	}
 }
+
+@media (max-width: 600px){
+	.operation-card {
+	   	.operations-table {
+		  	table {
+		  		.row {
+		  			font-size: 14px;
+		  		}
+		  	}
+		}
+	}
+}
+
+@media (min-width: 601px){
+	.operation-card {
+	   	.operations-table {
+		  	table {
+		  		.row {
+		  			font-size: 24px;
+		  		}
+		  	}
+		}
+	}
+}
+

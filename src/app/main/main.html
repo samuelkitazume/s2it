@@ -62,11 +62,12 @@
         <div class="mdl-card__actions mdl-card--border">
           <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect
           mdl-button--raised" ng-click="main.save()">
-            Save
+            Operate
           </a>
           <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="main.persist()">
             Persist
           </a>
+          <span class="persist-help">Use the persist button to save your operations into your browser</span>
         </div>
 
         <!-- <div class="mdl-card__menu">
@@ -102,7 +103,7 @@
                   {{row.type=="in" ? "Deposit" : "Withdrawal"}}</td>
                   <td class="row-value">R$ {{row.value}}</td>
                   <td class="action">
-                    <span ng-click="main.reverseOperation($index)">Remove</span>
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised" ng-click="main.reverseOperation($index)">Remove</a>
                   </td>
                 </tr>                
               </tbody>
